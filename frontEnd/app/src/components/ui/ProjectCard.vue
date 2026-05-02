@@ -17,7 +17,6 @@
         <span class="project-card__lang-dot"></span>
         {{ project.language }}
       </span>
-      <span class="project-card__commits">{{ project.commits }} commits</span>
     </div>
   </a>
 </template>
@@ -35,10 +34,15 @@ const langColors = {
   'JavaScript': '#f0db4f',
   'TypeScript': '#3178c6',
   'HTML/CSS': '#e34c26',
+  'HTML': '#e34c26',
+  'CSS': '#563d7c',
   'Kotlin': '#A97BFF',
   'Dart': '#00b4ab',
+  'Dart / Flutter': '#02569B',
   'Python': '#3572A5',
-  'Markdown': '#083fa1'
+  'Markdown': '#083fa1',
+  'Java': '#b07219',
+  'Blade (Laravel)': '#f55247'
 }
 
 const langColor = computed(() => langColors[props.project.language] || '#888')
@@ -138,9 +142,5 @@ const langColor = computed(() => langColors[props.project.language] || '#888')
   background: var(--lang-color);
 }
 
-.project-card__commits {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-family: var(--font-body);
-}
+
 </style>

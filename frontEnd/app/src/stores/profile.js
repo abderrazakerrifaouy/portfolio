@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import myProjectsData from '@/data/myProjects.json'
 
 export const useProfileStore = defineStore('profile', {
   state: () => ({
@@ -33,63 +34,16 @@ export const useProfileStore = defineStore('profile', {
       following: 6,
       achievements: ['Pull Shark x2', 'YOLO', 'Quickdraw']
     },
-    projects: [
-      {
-        id: 1,
-        name: 'challenges',
-        url: 'https://github.com/abderrazakerrifaouy/challenges',
-        language: 'C',
-        description: 'Collection of 6 programming challenges in C — string manipulation, algorithms, data structures.',
-        files: ['challenge1.c', 'challenge2.c', 'challenge3.c', 'challenge4.c', 'challenge5.c', 'challenge6.c'],
-        commits: 7,
-        category: 'Algorithms / C',
-        featured: true
-      },
-      {
-        id: 2,
-        name: 'brojecet-sas',
-        url: 'https://github.com/abderrazakerrifaouy/brojecet-sas',
-        language: 'C',
-        description: 'Modular C project with function management and file I/O — demonstrates structured data handling.',
-        files: ['main.c', 'VOIDE.c', 'main.txt'],
-        commits: 9,
-        category: 'Project / C',
-        featured: true
-      },
-      {
-        id: 3,
-        name: 'abderrazakerrifaouy',
-        url: 'https://github.com/abderrazakerrifaouy/abderrazakerrifaouy',
-        language: 'Markdown',
-        description: 'GitHub profile README — full developer showcase with tech stack, stats, and contact links.',
-        files: ['README.md'],
-        commits: 9,
-        category: 'Profile / Docs',
-        featured: true
-      },
-      {
-        id: 4,
-        name: 'my-web-site',
-        url: 'https://github.com/abderrazakerrifaouy/my-web-site',
-        language: 'HTML/CSS',
-        description: 'Personal portfolio website built with HTML, CSS and JavaScript — responsive and mobile-first.',
-        files: ['README.md'],
-        commits: 1,
-        category: 'Portfolio / Web',
-        featured: false
-      },
-      {
-        id: 5,
-        name: 'abderrazak',
-        url: 'https://github.com/abderrazakerrifaouy/abderrazak',
-        language: 'C',
-        description: 'Algorithmic exercises in C — foundational data structures and programming logic.',
-        files: ['main.c', '12.cbp'],
-        commits: 2,
-        category: 'Learning / C',
-        featured: false
-      }
-    ],
+    projects: myProjectsData.projets.map(p => ({
+      id: p.id,
+      name: p.nom,
+      url: p.url,
+      language: p.langage_principal || 'Unknown',
+      description: p.description_courte,
+      category: p.categorie,
+      featured: p.featured || false,
+      files: []
+    })),
     techStack: {
       frontend: ['HTML5', 'CSS3', 'JavaScript', 'Vue.js', 'TypeScript', 'SASS/SCSS', 'Bootstrap', 'Figma'],
       backend: ['PHP', 'Laravel', 'Python', 'Django', 'Java', 'Spring'],

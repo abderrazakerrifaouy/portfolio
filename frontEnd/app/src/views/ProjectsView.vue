@@ -99,7 +99,7 @@ const activeFilter = ref('All')
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'All') return store.projects
   if (activeFilter.value === 'C') return store.projects.filter(p => p.language === 'C')
-  if (activeFilter.value === 'Web') return store.projects.filter(p => ['HTML/CSS', 'JavaScript'].includes(p.language))
+  if (activeFilter.value === 'Web') return store.projects.filter(p => ['HTML', 'CSS', 'JavaScript', 'PHP', 'Blade (Laravel)'].includes(p.language))
   if (activeFilter.value === 'Docs') return store.projects.filter(p => p.language === 'Markdown')
   return store.projects
 })
