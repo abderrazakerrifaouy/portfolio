@@ -13,7 +13,7 @@
           Available for Projects
         </div>
 
-        <h1 class="hero__name reveal" style="animation-delay: 0.1s">
+        <h1 class="hero__name reveal reveal-delay-1">
           <span class="hero__name-first">Abderrazake</span>
           <br>
           <span class="hero__name-last">
@@ -22,18 +22,18 @@
           </span>
         </h1>
 
-        <div class="hero__role reveal" style="animation-delay: 0.2s">
+        <div class="hero__role reveal reveal-delay-2">
           <span class="hero__role-prefix">I build</span>
           <span class="hero__role-typed">{{ typed }}<span class="cursor-blink">|</span></span>
         </div>
 
-        <p class="hero__bio reveal" style="animation-delay: 0.3s">
+        <p class="hero__bio reveal reveal-delay-3">
           Full Stack Web Developer in training at YouCode Morocco,
           with <strong>2+ years</strong> of mobile development experience.
           Crafting clean, scalable solutions from frontend to backend.
         </p>
 
-        <div class="hero__actions reveal" style="animation-delay: 0.4s">
+        <div class="hero__actions reveal reveal-delay-4">
           <RouterLink to="/projects" class="btn-primary">
             View Projects
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -374,20 +374,23 @@ const { display: typed } = useTypewriter([
 /* Floating pills */
 .hero__float {
   position: absolute;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: var(--surface-3);
   border: 1px solid var(--border);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--text-secondary);
   letter-spacing: 0.06em;
   white-space: nowrap;
-  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  pointer-events: none;
 }
 
-.hero__float--1 { top: 10%; right: -5%; animation-delay: 0s; }
-.hero__float--2 { top: 30%; left: -10%; animation-delay: 0.8s; }
-.hero__float--3 { bottom: 20%; right: -8%; animation-delay: 1.6s; }
-.hero__float--4 { bottom: 35%; left: -5%; animation-delay: 2.4s; }
+.hero__float--1 { top: 12%; right: -2%; animation: float 6s ease-in-out infinite; }
+.hero__float--2 { top: 35%; left: -8%; animation: float 7s ease-in-out infinite 1s; }
+.hero__float--3 { bottom: 18%; right: -5%; animation: float 8s ease-in-out infinite 2s; }
+.hero__float--4 { bottom: 38%; left: -3%; animation: float 9s ease-in-out infinite 3s; }
+
 
 /* Scroll indicator */
 .hero__scroll {

@@ -2,13 +2,21 @@
   <header class="nav" :class="{ 'nav--scrolled': scrolled, 'nav--open': menuOpen }">
     <div class="container nav__inner">
       <!-- Logo -->
-      <RouterLink to="/" class="nav__logo" @click="menuOpen = false">
+      <RouterLink 
+        ref="logoRef"
+        to="/" 
+        class="nav__logo" 
+        @click="menuOpen = false"
+        @mousemove="lMove"
+        @mouseleave="lLeave"
+        :style="{ transform: `translate(${lx}px, ${ly}px)` }"
+      >
         <span class="nav__logo-bracket">[</span>
         <span class="nav__logo-name">AE</span>
         <span class="nav__logo-bracket">]</span>
       </RouterLink>
 
-      <!-- Desktop nav links -->
+
       <nav class="nav__links" aria-label="Main navigation">
         <RouterLink
           v-for="link in navLinks"
@@ -23,7 +31,14 @@
       </nav>
 
       <!-- CTA -->
-      <a href="mailto:abdrzakrifawi@gmail.com" class="nav__cta">
+      <a 
+        ref="ctaRef"
+        href="mailto:abdrzakrifawi@gmail.com" 
+        class="nav__cta"
+        @mousemove="cMove"
+        @mouseleave="cLeave"
+        :style="{ transform: `translate(${cx}px, ${cy}px)` }"
+      >
         Hire Me
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
           <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -62,10 +77,17 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useMagnetic } from '@/composables/useMagnetic.js'
 
 const route = useRoute()
 const scrolled = ref(false)
 const menuOpen = ref(false)
+
+const logoRef = ref(null)
+const ctaRef = ref(null)
+
+const { x: lx, y: ly, onMouseMove: lMove, onMouseLeave: lLeave } = useMagnetic(logoRef)
+const { x: cx, y: cy, onMouseMove: cMove, onMouseLeave: cLeave } = useMagnetic(ctaRef)
 
 const navLinks = [
   { path: '/', label: 'Home', num: '01' },
@@ -91,14 +113,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   right: 0;
   z-index: 100;
   height: var(--nav-h);
-  transition: background var(--t-normal) var(--ease), border-color var(--t-normal) var(--ease);
+  transition: all var(--t-normal) var(--ease-out);
   border-bottom: 1px solid transparent;
+  background: transparent;
 }
 
 .nav--scrolled {
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
   border-bottom-color: var(--border);
+  height: calc(var(--nav-h) - 12px);
 }
 
 .nav__inner {
@@ -117,10 +141,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: flex;
   align-items: center;
   gap: 2px;
-  transition: opacity var(--t-fast);
   margin-right: auto;
+  transition: transform 0.1s var(--ease-out);
 }
-.nav__logo:hover { opacity: 0.7; }
 .nav__logo-bracket {
   color: var(--accent);
   font-weight: 400;
@@ -187,7 +210,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: all var(--t-fast);
+  transition: 
+    background var(--t-fast) var(--ease-out), 
+    color var(--t-fast) var(--ease-out),
+    transform 0.1s var(--ease-out);
   white-space: nowrap;
 }
 

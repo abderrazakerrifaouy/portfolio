@@ -57,7 +57,10 @@ const langColor = computed(() => langColors[props.project.language] || '#888')
   border: 1px solid var(--border);
   background: var(--surface-2);
   position: relative;
-  transition: border-color var(--t-normal), background var(--t-normal), transform var(--t-normal) var(--ease);
+  transition: 
+    border-color var(--t-normal) var(--ease-out), 
+    background var(--t-normal) var(--ease-out), 
+    transform var(--t-normal) var(--ease-out);
   cursor: pointer;
   overflow: hidden;
 }
@@ -66,9 +69,9 @@ const langColor = computed(() => langColors[props.project.language] || '#888')
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--accent-muted), transparent);
+  background: linear-gradient(135deg, var(--accent-muted), transparent 60%);
   opacity: 0;
-  transition: opacity var(--t-normal);
+  transition: opacity var(--t-normal) var(--ease-out);
 }
 
 .project-card:hover {

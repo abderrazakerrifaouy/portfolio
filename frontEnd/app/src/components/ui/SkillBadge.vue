@@ -26,6 +26,8 @@ defineProps({
 .skill-badge:hover {
   border-color: var(--accent);
   color: var(--accent);
+  transform: translateY(-2px) scale(1.05);
+  background: var(--surface-3);
 }
 
 .skill-badge--default {

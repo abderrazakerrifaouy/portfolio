@@ -15,7 +15,8 @@
         <div class="about__left reveal">
           <div class="about__avatar">
             <div class="about__avatar-inner">
-              <span class="about__avatar-initials">AE</span>
+              <img src="../assets/images/me.png" alt="Abderrazake Errifaouy" class="about__avatar-img">
+              
             </div>
             <div class="about__avatar-badge">
               Morocco

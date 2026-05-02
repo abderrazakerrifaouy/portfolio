@@ -42,11 +42,13 @@
   --nav-h: 72px;
 
   /* Transitions */
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   --t-fast: 150ms;
   --t-normal: 300ms;
   --t-slow: 600ms;
+  --t-reveal: 800ms;
 }
 
 *, *::before, *::after {
@@ -169,10 +171,24 @@ body::after {
 /* Reveal animation utility */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transform: translateY(40px) scale(0.98);
+  filter: blur(10px);
+  transition: 
+    opacity var(--t-reveal) var(--ease-out), 
+    transform var(--t-reveal) var(--ease-out),
+    filter var(--t-reveal) var(--ease-out);
+  will-change: transform, opacity, filter;
 }
+
 .reveal.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
+
+/* Delay helpers */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
