@@ -425,17 +425,144 @@ const { display: typed } = useTypewriter([
   50% { opacity: 0.4; }
 }
 
-@media (max-width: 1024px) {
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
   .hero__inner {
     grid-template-columns: 1fr;
-    padding-top: var(--space-lg);
-    gap: var(--space-lg);
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
   }
-  .hero__float { display: none; }
+
+  .hero__badge {
+    padding: 6px 12px;
+    font-size: 10px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__name {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__role {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__role-typed {
+    min-width: 120px;
+  }
+
+  .hero__bio {
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 100%;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+
+  .hero__stats {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .hero__stat {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .hero__stat-num {
+    font-size: 1.5rem;
+  }
+
+  .hero__stat-label {
+    font-size: 10px;
+  }
+
+  .hero__stat-sep {
+    height: 30px;
+  }
+
+  /* Hide visual card on mobile */
+  .hero__visual {
+    display: none;
+  }
+
+  .hero__float {
+    display: none;
+  }
+
+  .hero__scroll {
+    bottom: var(--space-sm);
+  }
 }
 
-@media (max-width: 480px) {
-  .hero__actions { flex-direction: column; }
-  .hero__stats { flex-wrap: wrap; }
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .hero__name {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+
+  .hero__role {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+  }
+
+  .hero__actions {
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+
+  .hero__card {
+    max-width: 100%;
+  }
+
+  .hero__float {
+    display: none;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .hero__float {
+    display: block;
+  }
 }
 </style>

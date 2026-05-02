@@ -45,4 +45,19 @@ defineProps({
   color: var(--text-muted);
   background: transparent;
 }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .skill-badge {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  .skill-badge:hover {
+    transform: translateY(-1px) scale(1.03);
+  }
+}
 </style>

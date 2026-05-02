@@ -173,14 +173,123 @@ const links = [
   50% { opacity: 0.4; }
 }
 
-@media (max-width: 768px) {
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .footer {
+    padding-top: var(--space-md);
+  }
+
   .footer__inner {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding-bottom: var(--space-md);
     text-align: center;
   }
-  .footer__center { justify-content: center; }
-  .footer__nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  .footer__right { justify-content: center; }
-  .footer__bottom .container { flex-direction: column; gap: 8px; text-align: center; }
+
+  .footer__logo {
+    font-size: 1rem;
+  }
+
+  .footer__tagline {
+    font-size: 11px;
+  }
+
+  .footer__center {
+    justify-content: center;
+  }
+
+  .footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer__link {
+    font-size: 11px;
+  }
+
+  .footer__right {
+    justify-content: center;
+  }
+
+  .footer__socials {
+    gap: var(--space-xs);
+  }
+
+  .footer__social {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer__social svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .footer__bottom {
+    padding: var(--space-sm) 0;
+  }
+
+  .footer__bottom .container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer__copy,
+  .footer__status {
+    font-size: 10px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer {
+    padding-top: var(--space-lg);
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer__center {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer__link {
+    font-size: 11px;
+  }
+
+  .footer__logo {
+    font-size: 1rem;
+  }
+
+  .footer__bottom .container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-md);
+  }
 }
 </style>

@@ -298,6 +298,74 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .mobile-menu-leave-active {
   transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
 }
+
+.mobile-menu-enter-from { opacity: 0; }
+.mobile-menu-leave-to { opacity: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav__logo {
+    font-size: 1.1rem;
+  }
+
+  .nav__links { gap: 1rem; }
+  .nav__link { font-size: 11px; }
+  .nav__cta { padding: 6px 16px; font-size: 11px; }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .nav {
+    height: 56px;
+  }
+
+  .nav--scrolled {
+    height: calc(56px - 12px);
+  }
+
+  .nav__inner {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .nav__logo {
+    font-size: 1rem;
+  }
+
+  /* Hide desktop navigation */
+  .nav__links {
+    display: none;
+  }
+
+  /* Show burger menu */
+  .nav__burger {
+    display: flex;
+  }
+
+  /* Hide CTA on mobile */
+  .nav__cta {
+    display: none;
+  }
+
+  /* Mobile menu styling */
+  .nav__mobile {
+    top: 56px;
+    padding: 2rem 1rem;
+  }
+
+  .nav__mobile-link {
+    font-size: 1.5rem;
+  }
+
+  .nav__mobile-cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
   opacity: 0;

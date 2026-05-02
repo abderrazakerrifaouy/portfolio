@@ -291,19 +291,177 @@ const filteredProjects = computed(() => {
   color: var(--paper);
 }
 
-@media (max-width: 1024px) {
-  .projects__grid { grid-template-columns: 1fr 1fr; }
-}
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
 
-@media (max-width: 640px) {
-  .projects__grid { grid-template-columns: 1fr; }
-  .github-card { flex-direction: column; align-items: flex-start; }
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .projects {
+    padding: var(--space-md) 0;
+  }
+
+  .projects__breadcrumb {
+    font-size: 10px;
+  }
+
+  .projects__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .projects__subtitle {
+    font-size: 13px;
+    margin-bottom: var(--space-md);
+  }
+
+  .projects__filters {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: var(--space-md);
+  }
+
   .projects__filter-select-wrap {
     width: 100%;
     margin-right: 0;
+    margin-bottom: var(--space-xs);
   }
+
   .projects__filter-select {
     width: 100%;
+  }
+
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    flex: 1;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .github-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .github-card__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .github-card__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .github-card__info {
+    min-width: auto;
+  }
+
+  .github-card__info h3 {
+    font-size: 1rem;
+  }
+
+  .github-card__info p {
+    font-size: 12px;
+  }
+
+  .github-card__stats {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .github-stat {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .github-stat strong {
+    font-size: 1.2rem;
+  }
+
+  .github-stat span {
+    font-size: 9px;
+  }
+
+  .github-card__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 11px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .projects {
+    padding: var(--space-lg) 0;
+  }
+
+  .projects__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .projects__subtitle {
+    font-size: 14px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .projects__filters {
+    margin-bottom: var(--space-lg);
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .github-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-lg);
+  }
+
+  .github-card__info {
+    min-width: auto;
+  }
+
+  .github-card__info h3 {
+    font-size: 1.1rem;
+  }
+
+  .github-card__stats {
+    width: 100%;
+    gap: var(--space-md);
+  }
+
+  .github-card__btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .github-card {
+    flex-wrap: wrap;
+    align-items: center;
   }
 }
 </style>

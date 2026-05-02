@@ -408,7 +408,152 @@ const handleSubmit = async () => {
   50% { opacity: 0.4; }
 }
 
-@media (max-width: 1024px) {
-  .contact__grid { grid-template-columns: 1fr; }
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .contact {
+    padding: var(--space-md) 0;
+  }
+
+  .contact__breadcrumb {
+    font-size: 10px;
+  }
+
+  .contact__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .contact__intro {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+
+  .contact__channels {
+    margin-bottom: var(--space-md);
+    gap: 0;
+  }
+
+  .channel {
+    gap: var(--space-xs);
+    padding: 14px;
+  }
+
+  .channel__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .channel__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .channel__label {
+    font-size: 9px;
+  }
+
+  .channel__value {
+    font-size: 12px;
+  }
+
+  .channel__arrow {
+    width: 14px;
+    height: 14px;
+  }
+
+  .contact__availability {
+    padding: 14px;
+    gap: var(--space-xs);
+  }
+
+  .contact__availability strong {
+    font-size: 0.85rem;
+  }
+
+  .contact__availability p {
+    font-size: 11px;
+  }
+
+  .contact-form {
+    gap: var(--space-xs);
+    padding: var(--space-md);
+  }
+
+  .form-label {
+    font-size: 10px;
+  }
+
+  .form-input {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .form-textarea {
+    min-height: 100px;
+  }
+
+  .form-submit {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact {
+    padding: var(--space-lg) 0;
+  }
+
+  .contact__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--space-lg);
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .contact__intro {
+    font-size: 14px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .contact__channels {
+    margin-bottom: var(--space-lg);
+  }
+
+  .channel {
+    padding: 16px;
+  }
+
+  .contact-form {
+    padding: var(--space-lg);
+  }
+
+  .form-input {
+    padding: 12px 14px;
+  }
+
+  .form-submit {
+    padding: 14px 28px;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
 }
 </style>

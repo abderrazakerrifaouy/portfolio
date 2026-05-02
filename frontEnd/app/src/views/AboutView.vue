@@ -395,11 +395,161 @@ h2.about__story-title {
   line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
-  .about__grid { grid-template-columns: 1fr; }
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .about {
+    padding: var(--space-md) 0;
+  }
+
+  .about__header {
+    margin-bottom: var(--space-md);
+  }
+
+  .about__breadcrumb {
+    font-size: 10px;
+  }
+
+  .about__title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .about__avatar-inner {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about__avatar-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .about__quick-info {
+    margin-bottom: var(--space-md);
+  }
+
+  .info-row {
+    padding: 10px 12px;
+    gap: var(--space-xs);
+    font-size: 12px;
+  }
+
+  .info-label {
+    font-size: 10px;
+  }
+
+  .about__achievements-title {
+    font-size: 9px;
+  }
+
+  .achievement-badge {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .about__story-title,
+  h2.about__story-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .about__story p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline__dot {
+    left: -24px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline__date {
+    font-size: 10px;
+  }
+
+  .timeline__title {
+    font-size: 0.9rem;
+  }
+
+  .timeline__desc {
+    font-size: 12px;
+  }
+
+  .passion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .passion-card {
+    padding: var(--space-xs);
+  }
+
+  .passion-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .passion-card p {
+    font-size: 11px;
+  }
 }
 
-@media (max-width: 640px) {
-  .passion-grid { grid-template-columns: 1fr; }
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about {
+    padding: var(--space-lg) 0;
+  }
+
+  .about__header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .about__title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .about__grid {
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-lg);
+  }
+
+  .about__avatar-inner {
+    width: 160px;
+    height: 160px;
+  }
+
+  .about__story p {
+    font-size: 14px;
+  }
+
+  .passion-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .passion-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>

@@ -61,8 +61,59 @@ defineProps({
   margin-top: 28px;
 }
 
-@media (max-width: 768px) {
-  .section-title { flex-wrap: wrap; }
-  .section-title__line { display: none; }
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .section-title {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-title__num {
+    font-size: 10px;
+    padding-top: 0;
+    padding-right: var(--space-xs);
+  }
+
+  .section-title__text {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.1;
+  }
+
+  .section-title__sub {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .section-title__line {
+    display: none;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-title {
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-title__text {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .section-title__sub {
+    font-size: 13px;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .section-title__line {
+    display: block;
+  }
 }
 </style>

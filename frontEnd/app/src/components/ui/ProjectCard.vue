@@ -145,5 +145,45 @@ const langColor = computed(() => langColors[props.project.language] || '#888')
   background: var(--lang-color);
 }
 
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
 
-</style>
+@media (max-width: 767px) {
+  .project-card {
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .project-card__name {
+    font-size: 1.05rem;
+  }
+
+  .project-card__desc {
+    font-size: 12px;
+  }
+
+  .project-card__category {
+    font-size: 9px;
+    padding: 2px 8px;
+  }
+
+  .project-card__arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .project-card {
+    padding: var(--space-md);
+  }
+
+  .project-card__name {
+    font-size: 1.1rem;
+  }
+
+  .project-card__desc {
+    font-size: 12px;
+  }
+}</style>

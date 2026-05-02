@@ -76,4 +76,18 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(-100%);
 }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .layout__main {
+    padding-top: 56px;
+  }
+
+  .entry-overlay__logo {
+    font-size: 2rem;
+  }
+}
 </style>
